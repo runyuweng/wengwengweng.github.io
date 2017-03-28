@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>缓存 | Weng&#39;s Blog</title>
+  <meta name="author" content="Weng">
+  
+  <meta name="description" content="缓存一、mainfest缓存文件：1234567891011121314151617CACHE MANIFEST# 7de115d4f9748943ec2fcommon.jsindex.jsindex.cssCACHE:common.jsindex.jsindex.cssNETWORK:*SETTI">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="缓存"/>
+  <meta property="og:site_name" content="Weng&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Weng&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Weng&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-03-10T16:00:00.000Z"><a href="/2017/03/11/2017-03-11-manifest/">2017-03-11</a></time>
+      
+      
+  
+    <h1 class="title">缓存</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="一、mainfest"><a href="#一、mainfest" class="headerlink" title="一、mainfest"></a>一、mainfest</h2><h3 id="缓存文件："><a href="#缓存文件：" class="headerlink" title="缓存文件："></a>缓存文件：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line"># 7de115d4f9748943ec2f</div><div class="line"></div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">CACHE:</div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">NETWORK:</div><div class="line">*</div><div class="line"></div><div class="line">SETTINGS:</div><div class="line">prefer-online</div></pre></td></tr></table></figure>
+<h3 id="生成manifest"><a href="#生成manifest" class="headerlink" title="生成manifest"></a>生成manifest</h3><p>使用一旦修改代码，打包时自动更新混存清单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var AppCachePlugin = require(&apos;appcache-webpack-plugin&apos;);</div><div class="line">webpackConfig.plugins.push(</div><div class="line">  new AppCachePlugin(&#123;</div><div class="line">    cache: [</div><div class="line">      &apos;common.js&apos;,</div><div class="line">      &apos;index.js&apos;,</div><div class="line">      &apos;index.css&apos;,</div><div class="line">    ],</div><div class="line">    network: [&apos;*&apos;],  // No network access allowed!</div><div class="line">    //fallback: [&apos;index.html&apos;],</div><div class="line">    settings: [&apos;prefer-online&apos;],</div><div class="line">    //exclude: [],  // Exclude file.txt and all .js files</div><div class="line">    output: &apos;appcache.manifest&apos;</div><div class="line">  &#125;));</div></pre></td></tr></table></figure></p>
+<h3 id="缓存前后时间对比"><a href="#缓存前后时间对比" class="headerlink" title="缓存前后时间对比"></a>缓存前后时间对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>缓存前</th>
+<th>缓存后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total</td>
+<td>3.80s</td>
+<td>1.82s</td>
+</tr>
+<tr>
+<td>Loading</td>
+<td>50.9ms</td>
+<td>21.4ms</td>
+</tr>
+<tr>
+<td>Scripting</td>
+<td>1390.7ms</td>
+<td>764.9ms</td>
+</tr>
+<tr>
+<td>Rendering</td>
+<td>168.6ms</td>
+<td>54.7ms</td>
+</tr>
+<tr>
+<td>Painting</td>
+<td>36.6ms</td>
+<td>12.5ms</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>307.1ms</td>
+<td>109.3ms</td>
+</tr>
+<tr>
+<td>Idle</td>
+<td>1843.1ms</td>
+<td>856.9ms</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Idle: 浏览器等待时间</li>
+</ul>
+<h2 id="二、HTTP"><a href="#二、HTTP" class="headerlink" title="二、HTTP"></a>二、HTTP</h2><h3 id="304"><a href="#304" class="headerlink" title="304"></a>304</h3><p>解释:<br>如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。</p>
+<h2 id="三、H5技术缓存"><a href="#三、H5技术缓存" class="headerlink" title="三、H5技术缓存"></a>三、H5技术缓存</h2><h3 id="localstorage"><a href="#localstorage" class="headerlink" title="localstorage"></a>localstorage</h3><h3 id="indexDB"><a href="#indexDB" class="headerlink" title="indexDB"></a>indexDB</h3>
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2017/03/11/2017-03-11-manifest/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Etiquetas</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/web/">web</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2017 Weng
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
