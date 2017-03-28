@@ -60,7 +60,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="一、mainfest"><a href="#一、mainfest" class="headerlink" title="一、mainfest"></a>一、mainfest</h2><h3 id="缓存文件："><a href="#缓存文件：" class="headerlink" title="缓存文件："></a>缓存文件：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line"># 7de115d4f9748943ec2f</div><div class="line"></div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">CACHE:</div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">NETWORK:</div><div class="line">*</div><div class="line"></div><div class="line">SETTINGS:</div><div class="line">prefer-online</div></pre></td></tr></table></figure>
+        <h2 id="一、mainfest"><a href="#一、mainfest" class="headerlink" title="一、mainfest"></a>一、mainfest</h2><h3 id="缓存文件："><a href="#缓存文件：" class="headerlink" title="缓存文件："></a>缓存文件：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line"># 7de115d4f9748943ec2f</div><div class="line"></div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">CACHE:</div><div class="line">common.js</div><div class="line">index.js</div><div class="line">index.css</div><div class="line"></div><div class="line">NETWORK:</div><div class="line">*</div><div class="line"></div><div class="line">SETTINGS:</div><div class="line">prefer-online</div></pre></td></tr></table></figure>
 <h3 id="生成manifest"><a href="#生成manifest" class="headerlink" title="生成manifest"></a>生成manifest</h3><p>使用一旦修改代码，打包时自动更新混存清单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var AppCachePlugin = require(&apos;appcache-webpack-plugin&apos;);</div><div class="line">webpackConfig.plugins.push(</div><div class="line">  new AppCachePlugin(&#123;</div><div class="line">    cache: [</div><div class="line">      &apos;common.js&apos;,</div><div class="line">      &apos;index.js&apos;,</div><div class="line">      &apos;index.css&apos;,</div><div class="line">    ],</div><div class="line">    network: [&apos;*&apos;],  // No network access allowed!</div><div class="line">    //fallback: [&apos;index.html&apos;],</div><div class="line">    settings: [&apos;prefer-online&apos;],</div><div class="line">    //exclude: [],  // Exclude file.txt and all .js files</div><div class="line">    output: &apos;appcache.manifest&apos;</div><div class="line">  &#125;));</div></pre></td></tr></table></figure></p>
 <h3 id="缓存前后时间对比"><a href="#缓存前后时间对比" class="headerlink" title="缓存前后时间对比"></a>缓存前后时间对比</h3><table>
 <thead>
@@ -283,7 +283,7 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="search" name="q" results="0" placeholder="Suche">
     <input type="hidden" name="q" value="site:yoursite.com">
   </form>
 </div>
@@ -292,7 +292,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/web/">web</a><small>4</small></li>
