@@ -1,1 +1,1 @@
-.header{margin:1em auto !important}.post-entry:nth-child(odd),.post-main{animation:show1 3s !important}.post-entry:nth-child(even){animation:show2 3s !important}@keyframes show1{0%{transform:translate3d(-50px, 0, 0);opacity:.5}100%{transform:translate3d(0, 0, 0);opacity:1}}@keyframes show2{0%{transform:translate3d(50px, 0, 0);opacity:.5}100%{transform:translate3d(0, 0, 0);opacity:1}}
+.header{margin:1em auto !important}
