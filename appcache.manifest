@@ -1,10 +1,14 @@
 CACHE MANIFEST
-# 7de115d4f9748943ec2f
+# 7de115d4f9748943ec2n
 
 
 CACHE:
-/jquery.min.js
-/jquery.fancybox.pack.js
+/css/normalize.css
+/css/font.css
+/css/highlight.css
+/css/noise.css
+/js/jquery.min.js
+/js/jquery.fancybox.pack.js
 
 NETWORK:
 *
