@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# 7de115d4f9748943ec2f
+
+
+CACHE:
+/jquery.min.js
+/jquery.fancybox.pack.js
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
